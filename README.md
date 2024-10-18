@@ -71,4 +71,41 @@ Primero debemos crear un archivo HTML en /directorio_apache que contenga el hola
 
 ![Hola Mundo](Images_Docker/03_Hola_Mundo.png)
 
+Ahora entramos en **http://localhost:8000/** para ver el resultado de la página web
 
+Resultado:
+
+![Imagen de la página web en el port 8000]()
+
+## 2.3 Creación del segundo contenedor
+Al igual que hicimos antes, usamos el siguiente comando para crear un contenedor de port 9080 y port local 80:
+
+**docker run -d --name dam_web2 -p 9080:80 -v ~/mi_directorio_apache:/usr/local/apache2/htdocs httpd:2.4**
+
+> [!IMPORTANT]
+> Este comando se encarga de crear un segundo contenedor con port 9080, para poder acceder a ambos
+
+Resultado:
+
+![Creación del contenedor 2]()
+
+## 2.4 Comprobación de los local host
+Podemos comprobar que ambos local host funcionen entrando en las rutas:
+
+    **http://localhost:8000/**
+    **http://localhost:9080/**
+
+Como pusimos que ambas páginas web tengan el port local "80" las dos deben mostrar igual la página web ya que tienen el mismo index
+
+Resultado:
+
+![Resultado de la página web 1]()
+![Resultado de la página web 2]()
+
+## 2.5 Modificamos la página web
+Esto se puede hacer solamente cambiando el index y volviendo a entrar en las rutas anteriores
+
+Resultado:
+
+![Resultado de la modificacion 1]()
+![Resultado de la modificacion 2]()
